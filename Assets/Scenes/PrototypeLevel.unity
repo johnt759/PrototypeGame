@@ -3659,6 +3659,25 @@ MonoBehaviour:
     m_Flags: 0
     m_Priority: 0
   thisDir: {x: 0, y: 0}
+  JumpKey:
+    m_Name: Jump Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b601fc71-3515-44c5-a28a-aa4dcf90c30a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: bd996b4e-422b-424a-96c4-2095dae5200e
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump Key
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  jumpHeight: 8
 --- !u!54 &2049341917
 Rigidbody:
   m_ObjectHideFlags: 0
