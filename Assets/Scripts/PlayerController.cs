@@ -1,7 +1,8 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement; // Needed to handle levels like restart or load next level.
 public class PlayerController : MonoBehaviour
 {
     // Defining the variables for the player object
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y <= yBound)
         {
             Debug.Log("You Died!");
+            PauseWaitRoutine();
+            SceneManager.LoadScene("PrototypeLevel", LoadSceneMode.Single);
         }
     }
 
@@ -55,15 +58,27 @@ public class PlayerController : MonoBehaviour
         {
             onGround = true;
             Debug.Log("You Died!");
+            PauseWaitRoutine();
+            SceneManager.LoadScene("PrototypeLevel", LoadSceneMode.Single);
         }
         else if (collision.gameObject.CompareTag("Goal"))
         {
             onGround = true;
             Debug.Log("You Win!");
+            PauseWaitRoutine();
+            SceneManager.LoadScene("PrototypeLevel", LoadSceneMode.Single);
         }
         else
         {
             onGround = false;
         }
+    }
+
+    // Regardless of whether the player fails a levels and must restart at that current level or
+    // the player completes a level and advances to the next one, this coroutine below pauses the
+    // game for some seconds before using SceneManager to decide about managing scenes.
+    private IEnumerator PauseWaitRoutine()
+    {
+        yield return new WaitForSeconds(5);
     }
 }
