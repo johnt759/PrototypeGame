@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.right * Time.deltaTime * moveSpeed*thisDir.x);
 
         // If spacebar is pressed, make the player jump (and don't let them jump again until the ground is touched).
-        if (JumpKey.triggered && onGround)
+        if (JumpKey.triggered && onGround == true)
         {
             onGround = false;
             player.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
@@ -67,10 +67,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("You Win!");
             PauseWaitRoutine();
             SceneManager.LoadScene("PrototypeLevel", LoadSceneMode.Single);
-        }
-        else
-        {
-            onGround = false;
         }
     }
 
