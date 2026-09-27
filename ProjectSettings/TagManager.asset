@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Goal
   - Hazard
+  - Safe
+  - Warning
   layers:
   - Default
   - TransparentFX

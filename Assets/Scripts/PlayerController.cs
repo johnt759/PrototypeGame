@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("You Died!");
             PauseWaitRoutine();
-            SceneManager.LoadScene("PrototypeLevel", LoadSceneMode.Single);
+            SceneManager.LoadScene("TestLevel", LoadSceneMode.Single);
         }
     }
 
@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
     {
         // Anytime the player touches the ground (be it a safe platform, hazard platform, or goal),
         // allow them to jump again (and display the debug messages when applicable).
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Safe")
+            || collision.gameObject.CompareTag("Warning"))
         {
             onGround = true;
         }
@@ -59,14 +60,14 @@ public class PlayerController : MonoBehaviour
             onGround = true;
             Debug.Log("You Died!");
             PauseWaitRoutine();
-            SceneManager.LoadScene("PrototypeLevel", LoadSceneMode.Single);
+            SceneManager.LoadScene("TestLevel", LoadSceneMode.Single);
         }
         else if (collision.gameObject.CompareTag("Goal"))
         {
             onGround = true;
             Debug.Log("You Win!");
             PauseWaitRoutine();
-            SceneManager.LoadScene("PrototypeLevel", LoadSceneMode.Single);
+            SceneManager.LoadScene("TestLevel", LoadSceneMode.Single);
         }
     }
 
